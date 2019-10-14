@@ -115,5 +115,3 @@ class Right<L, R> extends EitherMonad<Right<L, R>, L, R, R> {
     return "Right(" + get() + ")";
   }
 }
-
-
