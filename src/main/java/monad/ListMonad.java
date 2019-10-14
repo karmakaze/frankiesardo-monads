@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 @SuppressWarnings("unchecked")
-public final class ListMonad<T> extends Monad<List<T>, T> implements List<T> {
+public final class ListMonad<T> extends Monad<ListMonad<T>, T> implements List<T> {
 
   public static <U> ListMonad<U> instance(U value) {
     return new ListMonad<U>(Collections.singletonList(value));
@@ -16,6 +16,10 @@ public final class ListMonad<T> extends Monad<List<T>, T> implements List<T> {
 
   public static <U> ListMonad<U> instance(List<U> list) {
     return new ListMonad<U>(list);
+  }
+
+  public static <U> ListMonad<U> safeCast(Monad<? extends ListMonad<?>, U> monad) {
+    return (ListMonad<U>) monad;
   }
 
   private List<T> list;

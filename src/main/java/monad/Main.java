@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Main {
 
-  static Function<Integer, Monad<List<Integer>, Integer>> repeatNumber =
-      new Function<Integer, Monad<List<Integer>, Integer>>() {
-        @Override public Monad<List<Integer>, Integer> apply(Integer arg) {
+  static Function<Integer, Monad<ListMonad<Integer>, Integer>> repeatNumber =
+      new Function<Integer, Monad<ListMonad<Integer>, Integer>>() {
+        @Override public Monad<ListMonad<Integer>, Integer> apply(Integer arg) {
           return ListMonad.instance(Collections.nCopies(arg, arg));
         }
       };
